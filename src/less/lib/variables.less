@@ -1,0 +1,136 @@
+@whiteColor:#FFFFFF;
+@blackColor:#000000;
+
+@greenColor1: #4DCD80;
+//搜索框、输入框focus时颜色
+
+@orangeColor2: #FBA53C;
+@orangeColor3: #EF340F;
+
+@redColor1:#ff0000;
+@grayColor1:#CFCFCF;
+@grayColor2:#E6E6E6;
+@grayColor3:#414141;
+@grayColor4:#808080;
+@grayColor5:#ADADAD;
+@grayColor6:#808080;
+@grayColor7:#F2F2F5;
+@grayColor8:#D9D9D9;
+//系统主色调（绿色）
+@mainColor: #1EAC5A;
+
+//按钮背景色
+@buttonHoverColor: #0A7939;
+
+
+//主题内容字体
+@app-font-family:"microsoft yahei";
+//从内容字体
+@app-font-family-sub:simsun;
+//移动端背景色
+@app-iphone-bgcolor:#efeff4;
+//PC端背景色
+@app-pc-bgcolor:#E8F3FF;
+//PC端左边栏背景色
+@app-sidebarleft-bgcolor:#efeff4;
+//顶部导航菜单字体颜色
+@app-title-color:#ffffff;
+//a超链接标签默认颜色#A7C5FA
+@app-a-unfoucs-color:#FFFFFF;
+//a超链接标签鼠标上移后颜色
+@app-a-hover-color:#EBF3FF;
+
+
+/*@leftWidth:329px;*/
+@leftWidth:160px;
+@left-sidebar-width:160px;
+
+@font-size-xs:10px;
+@font-size-min:13px;
+@font-size-md:14px;
+@font-size-lg:15px;
+@font-size-lg-x:16px;
+@font-size-super:18px;
+
+
+//顶部导航高度
+@navbar-absolute-top-height:50px;
+//顶部gradient渐变颜色 #12B7F5
+@navbar-absolute-top-bgcolor:#0084FF;
+@navbar-absolute-top-gradient-color:#2851cc;
+@navbar-absolute-menu-gradient-color:#3366ff;
+
+//底部导航高度
+@navbar-absolute-bottom-height:79px;
+//底部导航背景色
+@navbar-absolute-bottom-bgcolor:#ffffff;
+//底部导航顶部边框颜色
+@navbar-absolute-bottom-bordertopcolor:#dddddd;
+
+//列表项底部边框颜色
+@list-border-color:#EEEEEE;
+
+
+
+//边角
+.borderRadius(@radius:5px) { 
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+//边框阴影
+.boxShadow(@arguments){ 
+    -moz-box-shadow: @arguments; 
+    -webkit-box-shadow: @arguments; 
+    box-shadow: @arguments; 
+}
+//径直渐变
+.backgroundlinear-gradient(@position,@color1,@color2){
+    background: -webkit-linear-gradient(@position, @color1, @color2);
+    background: -o-linear-gradient(@position, @color1, @color2);
+    background: -moz-linear-gradient(@position, @color1, @color2);
+    background: linear-gradient(@position, @color1, @color2);
+}
+//背景色渐变
+.backgroundImage(@position,@color1,@color2){
+    -webkit-background-image: radial-gradient(@position,@color1,@color2);
+    background-image: radial-gradient(@position,@color1,@color2);
+}
+//流动布局
+.flex(@flex){
+    -moz-box-flex: @flex;
+    -webkit-box-flex: @flex;
+    flex: @flex;
+}
+//
+.boxSizing(@box-sizing){
+    -moz-box-sizing: @box-sizing;
+    -webkit-box-sizing: @box-sizing;
+    box-sizing: @box-sizing;
+}
+//旋转
+.transform(@x,@y){
+    -webkit-transform: translate(@x , @y);
+    -ms-transform: translate(@x , @y);
+    -o-transform: translate(@x , @y);
+    transform: translate(@x , @y);
+}
+//动画
+.transition(@transition){
+    -moz-transition: @transition;
+    -webkit-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+.animate(@animate){
+    -webkit-animation: @animate;
+    -moz-animation: @animate;
+    -ms-animation: @animate;
+    animation: @animate;
+}
+//透明
+.opacity(@opacity){
+    -moz-opacity: @opacity;
+    -webkit-opacity: @opacity;
+    opacity: @opacity;
+}

@@ -1,0 +1,24 @@
+<div class="ms-subTopContainer">
+        <div class="blockName">
+            <span><i class="icon ion-social-vimeo-outline"></i>人数统计</span>
+        </div>
+        <div class="ms-topNav">
+            <nav class="ms-navTab text-center">
+                <a ng-class="{'current':tip.Navflag == 'tipA'}" ui-sref="tip.tipA" href="javascript:;">注册总人数</a>
+                <a ng-class="{'current':tip.Navflag == 'tipB'}" ui-sref="tip.tipB" href="javascript:;">单个学校人数</a>
+            </nav>
+        </div>
+</div>
+<div class="sub-scrollable marginTop">
+    <div class="scrollable-content flexContainer"
+        data-ui-back-top
+        data-ui-scroll-top="scroll.scrollToTop()"
+        data-ui-scroll-bottom="scroll.scrollToBottom()">
+        <div title="返回顶部" class="scrollToTop" ng-click="scrollToTop()">
+            <i class="icon ion-chevron-up"></i>
+        </div>
+        <div class="flexItems">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

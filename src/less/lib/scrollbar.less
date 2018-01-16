@@ -1,0 +1,20 @@
+/*-webkit内核浏览器滚动条样式*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  .borderRadius(100px);
+}
+::-webkit-scrollbar-thumb {
+  .borderRadius(100px);
+  background: rgba(153,153,153,0.6);
+  &:hover{
+    background: rgba(153,153,153,0.9);
+  }
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(153,153,153,0.6);
+  &:hover{
+    background: rgba(153,153,153,0.9);
+  }
+}

@@ -1,0 +1,169 @@
+html {
+  font-size: initial;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
+}
+body {
+  font-size: 1em;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+html,
+body,
+header,
+section,
+nav,
+div,
+h1,
+h2,
+h3,
+h4,
+span,
+label,
+ul,
+li,
+ol,
+dl,
+input,
+button,
+fieldset,
+textarea {
+  padding: 0;
+  margin: 0;
+  font-family: @app-font-family;
+  font-size: 1em;
+  outline: none;
+}
+input,
+button,
+select,
+textarea {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+textarea{
+  resize: none;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(255,255,255, 0);
+}
+
+p{
+  &.list{
+    margin: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 50px;
+    button{
+      &.btn-danger,
+      &.btn-warning{
+        margin-top:8px;
+        font-size: 14px;
+      }
+    }
+    span{
+      font-size:14px;
+      padding: 10px;
+    }
+  }
+}
+.noMore{
+  display: none;
+}
+.hasMore{
+  display: block;
+}
+
+.bg-gray{
+  background-color: #F4F4F4;
+}
+.bg-littleGreen{
+  background-color: #DFF0D8;
+}
+
+
+//不换行，超出显示省略号
+.wordBreak{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+
+//标签、分类
+a{
+  &.category{
+    border-radius:20px;
+    background-color:aliceblue;
+    padding:3px 15px;
+    font-size:14px;
+    margin-right:15px;
+    display: inline-block;
+    cursor: default;
+  }
+  &.bg{
+    padding: 3px 15px;
+    color: #fff;
+    .borderRadius(2px);
+    &:hover{
+      color: #fff;
+    }
+  }
+  &.bg-initial{
+    background: rgba(119,119,119,.7);
+  }
+  &.bg-notExamine{
+    background: rgba(240,173,78,.7)
+  }
+  &.bg-back{
+    background: rgba(169,68,66,.7);
+  }
+  &.bg-notDonePass{
+    background: rgba(51,122,183,.7);
+  }
+  &.bg-donePass{
+    background: rgba(102,81,44,.7);
+  }
+  &.bg-commented{
+    background: rgba(60,118,61,.7);
+  }
+}
+
+.scrollToTop{
+  position: absolute;
+  z-index: 99;
+  height: 50px;
+  width: 50px;
+  right:40px;
+  bottom:40px;
+  background: @ms-color;
+  cursor:pointer;
+  .borderRadius(3px);
+  display: none;
+  .transition(display 0.5s);
+  &.show{
+    display: block;
+  }
+  &:hover{
+    background-color:#239a9b;
+  }
+  i{
+    position:absolute;
+    left: 50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    color:#fff;
+    font-size: 30px;
+  }
+}
+
+//兼容Firefox
+h1,h2,h3,h4,h5,h6{
+  small{
+    font-size: 85%;//bootstrap  h1~3:65%,h4~6:75%
+  }
+}

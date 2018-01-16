@@ -1,0 +1,43 @@
+/**
+  * 侧边栏导航
+  */
+.sidebar {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: block;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 400ms ease;
+  -moz-transition: -moz-transform 400ms ease;
+  -o-transition: -o-transform 400ms ease;
+  transition: transform 400ms ease;
+
+  width: @leftWidth;
+  background-color:@ms-color;
+  pointer-events: auto;
+
+  &.sidebar-w400{
+    width: @ms-subNavWidth;
+    background-color: #fff;
+  }
+  &.sidebar-w300{
+    width: @ms-resNavWidth;
+    background-color: #fff;
+  }
+  .scrollable-header{
+    height: 60px;
+  }
+  .logo{
+    background-image: url("../img/logo_new.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    background-size: contain;
+    border-bottom: 1px solid @ms-nav-border-b-color;
+    background-position: 1px;
+    width: 58px;
+    cursor: pointer;
+  }
+}

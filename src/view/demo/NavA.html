@@ -1,0 +1,31 @@
+<div class="flexContainer child">
+    <div class="mainItem">
+        <div class="center-box">
+            <strong>当前专家总数及回答问题总数</strong>
+            <br>
+            <div class="nullItem nullItem_bottom"></div>
+
+            <div style="height:400px">   
+                <expbar ng-if="data"
+                        id="sexBarcharts" 
+                        legend="legend"  
+                        data="data">
+                </expbar>  
+            </div> 
+            <!-- <table class="table text-center">
+                <tr class="title_tr">
+                    <td>分类</td>
+                    <td>数量</td>
+                </tr>
+                <tr>
+                    <td>专家</td>
+                    <td>{{experts}}</td>
+                </tr>
+                <tr>
+                    <td>回答问题</td>
+                    <td>{{questions}}</td>
+                </tr>
+            </table> -->
+        </div>
+    </div>
+</div>

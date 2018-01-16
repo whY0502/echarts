@@ -1,0 +1,44 @@
+/**
+  * 应用主题内容
+  */
+.app {
+  position: relative;
+  left: 0;
+  margin-left: @leftWidth;
+  z-index: 2;
+  width: auto;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 400ms ease;
+  -moz-transition: -moz-transform 400ms ease;
+  -o-transition: -o-transform 400ms ease;
+  transition: transform 400ms ease;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+
+  &.app-ml400{
+    margin-left: @ms-subNavWidth;
+  }
+  &.app-ml500{
+    margin-left: @ms-resNavWidth;
+  }
+}
+
+.app-body {
+  display: block;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.app-content {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: @ms-bgColor;
+}

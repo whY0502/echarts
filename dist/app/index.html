@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <!--<base href="/">-->
+		<title>MOORs</title>
+        <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+        <meta name="keywords" content="研究性学习，课题研究，在线学习，知识分享，自适应学习">
+        <meta name="description" content="MOORs，让知识不再乏味，让学习不再孤单。MOORs是一个开展研究性学习的工具，通过学习科学规范的研究流程、丰富资源，在线协作、沟通和分享，实现研究性学习管理的轻松协作。">
+        <meta name="renderer" content="webkit" />
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/moor.min.css" />
+	</head>
+	<body ng-controller="MainController as mainCtrl">
+        <div class="app">
+            <div id="app-body" class="app-body">
+                <div class="app-content">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </div>
+        <div ng-include="'view/sidebar.html'" class="sidebar"></div>
+        <alert-bar class="alert_bar text-center"
+                   message="TipService.message"
+                   type="TipService.type"></alert-bar>
+        <script type="text/ng-template" id="vDemo1-modal-template.html">
+            <v-modal class="vModal--default">
+                <v-dialog medium>
+                    <v-close label="Close" ng-click="modal.close()"></v-close>
+                    <h3 class="u-marginBm">这里放Title</h3>
+                    <div class="v-dialog-container">
+                        v-dialog-container-content
+                    </div>
+                </v-dialog>
+            </v-modal>
+        </script>
+        <script type="text/ng-template" id="vDemo2-modal-template.html">
+            <v-modal class="vModal--default" onclose="modal.close()">
+                <v-dialog fit>
+                    <v-close label="Close"></v-close>
+                    <h3 class="u-marginBm">这是一个配置了onclose属性的弹框</h3>
+                    <div class="v-dialog-container">
+                        v-dialog-container-content，配置了onclose属性后，可以点击非弹框区域，或者按ESC键，即可关闭弹框
+                    </div>
+                </v-dialog>
+            </v-modal>
+        </script>
+        <script type="text/ng-template" id="vDemoSide-modal-template.html">
+            <v-modal-side class="vModal--default-side" onclose="modal.close()" style="z-index: 1006;">
+                <v-dialog-side default ng-class="{'fullScreen':modal.fullScreenMode}" >
+                    <v-close-side label="Close" title="关闭窗口"></v-close-side>
+                    <v-view-mode ng-click="modal.changeMode()" title="{{modal.fullScreenMode?'侧栏显示':'全屏显示'}}">
+                        <i class="fa" ng-class="{'fa-expand':!modal.fullScreenMode,'fa-compress':modal.fullScreenMode}"></i>
+                    </v-view-mode>
+                    <div class="v-dialog-side-container text-center" style="padding: 0;">
+                        <ng-include src="'view/demo/include.html'"></ng-include>
+                    </div>
+                </v-dialog-side>
+            </v-modal-side>
+        </script>
+        <script type="text/ng-template" id="vDemoSideFit-modal-template.html">
+            <v-modal-side class="vModal--default-side" onclose="modal.close()" style="overflow-y: hidden;">
+                <v-dialog-side fit style="overflow-y: hidden;">
+                    <v-close-side label="Close"></v-close-side>
+                    <ng-include src="'view/demo/fitModal.html'"></ng-include>
+                </v-dialog-side>
+            </v-modal-side>
+        </script>
+        <script type="text/ng-template" id="organization-treeView.html">
+            <ul class="tree-view">
+                <li ng-repeat="item in treeData" ng-include="'organization-treeItem.html'"></li>
+            </ul>
+        </script>
+        <script type="text/ng-template" id="organization-treeItem.html">
+            <div class="item" ng-class="{'active':item.id == activeNodeId}">
+                <div ng-click="loadDataByItem(item, $event);" style="margin-right: 40px;">
+                    <i class="{{getItemIcon(item,treeType)}}"></i>
+                    <span class='text-field'>{{item[textField]}}</span>
+                </div>
+                <nav>
+                    <a title="{{item.$$isExpend?'收缩':'展开'}}" ng-click="itemExpended(item,$event);" ng-if="item.children && item.children.length>0 && ((treeType == 1 && item.level !=3) || (treeType == 2 && item.level ==1))">
+                        <i style="font-size: 24px;" class="{{getItemExpansionIcon(item)}}"></i>
+                    </a>
+                    <a title="排序" ng-click="warpCallback('sortNode',item);" ng-if="item.children.length>1">
+                        <i class="icon ion-funnel"></i>
+                    </a>
+                    <a title="添加" ng-click="warpCallback('createNode',item);" ng-if="(treeType == 1 && item.level !=3) || (treeType == 2 && item.level ==1)">
+                        <i class="icon ion-plus-circled"></i>
+                    </a>
+                    <a title="重命名" ng-click="warpCallback('updateNode',item);" ng-if="item.level !=1">
+                        <i class="icon ion-edit"></i>
+                    </a>
+                    <a title="删除" ng-click="warpCallback('deleteNode',item);" ng-if="item.level !=1 && (item.children == null || item.children.length == 0)">
+                        <i class="icon ion-minus-circled"></i>
+                    </a>
+                </nav>
+            </div>
+            <ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend">
+                <li ng-repeat="item in item.children" ng-include="'organization-treeItem.html'"></li>
+            </ul>
+        </script>
+        <script type="text/ng-template" id="business-card-modal.html">
+            <v-card class="v-card" onclose="modal.close()"
+                    ng-style="modal.style">
+                <ng-include src="'view/businessCard.html'"></ng-include>
+            </v-card>
+        </script>
+        <script type="text/javascript" src="js/MOORs.min.js" defer="defer"></script>
+	</body>
+</html>

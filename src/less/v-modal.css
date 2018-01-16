@@ -1,0 +1,577 @@
+/**
+ * vModal - Simple, flexible and beautiful modal dialogs in AngularJS
+ * @version v1.3.7
+ * @link http://lukaszwatroba.github.io/v-modal
+ * @author Łukasz Wątroba <l@lukaszwatroba.com>
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+
+/***************************************
+  vModal
+ ***************************************/
+/**
+ * Example HTML:
+ *
+  <v-modal class="vModal--default" close="[ctrl method]">
+    <v-dialog role="dialog" fit middle>
+      <button aria-label="close" v-close></button>
+      [content]
+    </v-dialog>
+  </v-modal>
+ */
+/* Base
+ ***************************************/
+.v-dialog-container{
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /*padding: 10px 15px 0 0;*/
+    padding:0 15px;
+}
+
+.u-marginBm{
+    position: absolute;
+    font-weight:500;
+    font-size: 18px;
+    top: -32px;
+    color: #FFF;
+}
+
+v-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 70px 20px; }
+  v-modal v-close {
+    position: absolute;
+    top: -43px;
+    right: 9px; }
+
+v-dialog {
+  display: block;
+  position: relative;
+  pointer-events: auto;
+  background: white;
+  z-index: 0;
+  min-width: 240px;
+  outline: 0;
+  max-width: 1024px; }
+  v-dialog:focus {
+    outline: 0; }
+
+v-dialog[middle] {
+  max-height: 100%;
+  overflow-y: auto; }
+
+v-dialog[fit] {
+  width: 100%; }
+
+v-dialog[small] {
+  max-width: 340px; }
+  @media (min-width: 340px) {
+    v-dialog[small] {
+      min-width: 340px; } }
+
+v-dialog[medium] {
+  max-width: 480px; }
+  @media (min-width: 480px) {
+    v-dialog[medium] {
+      min-width: 480px; } }
+
+v-dialog[large] {
+  max-width: 670px; }
+  @media (min-width: 670px) {
+    v-dialog[large] {
+      min-width: 670px; } }
+
+v-close {
+  display: inline-block;
+  z-index: 10;
+  cursor: pointer;
+  outline: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  v-close:hover, v-close:focus {
+    outline: 0; }
+
+[v-modal-open] {
+  overflow: hidden; }
+
+v-modal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+v-dialog {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
+
+v-dialog[middle] {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center; }
+
+/* Theme: default
+   ***************************************/
+.vModal--default {
+  -webkit-transition: opacity 0.25s;
+          transition: opacity 0.25s; }
+  .vModal--default v-dialog {
+    will-change: transform;
+    padding: 20px;
+    border-radius: 2px;
+    border-top: 45px solid #27ACAD;
+    -webkit-animation: vDialog-enter 0.5s;
+            animation: vDialog-enter 0.5s; }
+  .vModal--default v-close {
+    width: 40px;
+    height: 40px; }
+    .vModal--default v-close::after, .vModal--default v-close::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      height: 1px;
+      width: 16px;
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%; }
+    .vModal--default v-close::before {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+    .vModal--default v-close::after {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
+    .vModal--default v-close::after, .vModal--default v-close::before {
+      background-color: #FFF;
+      -webkit-transition: background-color 0.25s;
+              transition: background-color 0.25s; }
+    .vModal--default v-close:hover::after, .vModal--default v-close:hover::before, .vModal--default v-close:focus::after, .vModal--default v-close:focus::before {
+      background-color: #FFF; }
+  .vModal--default.ng-enter {
+    opacity: 0; }
+  .vModal--default.ng-enter-active {
+    opacity: 1; }
+  .vModal--default.ng-leave {
+    opacity: 1; }
+  .vModal--default.ng-leave-active {
+    opacity: 0; }
+
+/* Theme: default (animations) */
+@-webkit-keyframes vDialog-enter {
+  0% {
+    -webkit-transform: translate3d(0, 30px, 0);
+            transform: translate3d(0, 30px, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); } }
+@keyframes vDialog-enter {
+  0% {
+    -webkit-transform: translate3d(0, 30px, 0);
+            transform: translate3d(0, 30px, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); } }
+
+
+
+
+/**
+ * 改造后v-dialog-side
+ ***************************************/
+.v-dialog-side-container{
+    position: relative;
+    padding:20px;
+    background-color: #FFF;
+    overflow-y: hidden;
+}
+v-modal-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+v-modal-side v-close-side {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    height: 30px;
+}
+v-dialog-side {
+    display: block;
+    position: relative;
+    pointer-events: auto;
+    z-index: 0;
+    min-width: 240px;
+    outline: 0;
+    height:100%;
+    background: white;
+    overflow: auto;
+}
+v-dialog-side[small]{
+    width: 480px;
+}
+v-dialog-side[default]{
+    width: 710px;
+}
+v-dialog-side[large]{
+    width:900px;
+}
+v-dialog-side[fit]{
+    width:100%;
+}
+v-dialog-side:focus {
+    outline: 0;
+}
+v-close-side {
+    display: inline-block;
+    /* z-index: 10;*/
+    z-index:1002;
+    cursor: pointer;
+    outline: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+v-close-side:hover,
+v-close-side:focus {
+    outline: 0;
+}
+/*[v-modal-open] {
+    overflow: hidden;
+}*/
+v-modal-side {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-align-items: stretch;
+    -moz-align-items:stretch;
+    -ms-align-items:stretch;
+    align-items:stretch;
+}
+v-dialog-side {
+    order:0;
+    flex-grow: 0;
+    align-self: auto;
+    -webkit-align-self: auto;
+    -webkit-transition: flex-grow 0.5s;
+    -moz-transition: flex-grow 0.5s;
+    -o-transition: flex-grow 0.5s;
+    transition: flex-grow 0.5s;
+}
+.fullScreen{
+    flex-grow: 1;
+}
+v-view-mode{
+    position: absolute;
+    top:0;
+    right:42px;
+    padding: 8px 12px;
+    font-size: 18px;
+    z-index:10;
+    cursor:pointer;
+    color:#777;
+    -webkit-transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    -o-transition: color 0.25s;
+    transition: color 0.25s;
+}
+v-view-mode:hover{
+    color:#f44336;
+}
+/* Theme: default
+   ***************************************/
+.v-card,
+.vModal--default-side {
+    -webkit-transition: opacity 0.25s;
+    transition: opacity 0.25s;
+}
+.vModal--default-side v-dialog-side {
+    will-change: transform;
+    -webkit-animation: vDialogSide-enter 0.3s;
+    animation: vDialogSide-enter 0.3s;
+    -o-animation:vDialogSide-enter 0.3s;
+}
+
+.vModal--default-side v-close-side {
+    /*width: 60px;
+    height: 60px;*/
+    width: 40px;
+    height: 40px;
+}
+
+.vModal--default-side v-close-side::after,
+.vModal--default-side v-close-side::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    /*left: 22px;*/
+    left:12px;
+    height: 1px;
+    width: 20px;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+.vModal--default-side v-close-side::before {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.vModal--default-side v-close-side::after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.vModal--default-side v-close-side::after,
+.vModal--default-side v-close-side::before {
+    background-color: #444;
+    -webkit-transition: background-color 0.25s;
+    transition: background-color 0.25s;
+}
+.vModal--default-side v-close-side:hover::after,
+.vModal--default-side v-close-side:hover::before,
+.vModal--default-side v-close-side:focus::after,
+.vModal--default-side v-close-side:focus::before {
+    background-color: #F44336;
+}
+.vModal--default-side.ng-enter {
+    opacity: 0;
+}
+.vModal--default-side.ng-enter-active {
+    opacity: 1;
+}
+.vModal--default-side.ng-leave {
+    opacity: 1;
+}
+.vModal--default-side.ng-leave-active {
+    opacity: 0;
+}
+
+/* Theme: default (animations) */
+@-webkit-keyframes vDialogSide-enter {
+    0% {
+        -webkit-transform: translate3d(600px,0,0);
+        transform: translate3d(600px,0,0);
+    }
+    100% {
+        -webkit-transform: translate3d( 0,0,0);
+        transform: translate3d(0, 0,0);
+        -webkit-align-items: flex-start;
+        -moz-align-items:flex-start;
+        -ms-align-items:flex-start;
+        align-items:flex-start;
+    }
+}
+@keyframes vDialogSide-enter {
+    0% {
+        -webkit-transform: translate3d(600px,0,0);
+        transform: translate3d(600px,0,0);
+    }
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}
+
+
+/*个人卡片*/
+v-card{
+    position:absolute;
+    z-index: 1006;
+    width: 340px;
+    height:150px;
+    padding: 10px;
+    background: rgba(0,0,0,0);
+}
+[business-card]{
+    cursor: pointer;
+}
+[business-card-style]{
+    cursor: pointer;
+    min-width: 42px;
+}
+[business-card-style]:hover{
+    text-decoration: underline;
+}
+.v-card .center-box{
+    padding: 15px;
+    width: 320px;
+    height: 130px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px;
+    will-change: transform;
+    background: -moz-linear-gradient(top,rgba(129, 225, 226,1), rgba(44, 191,192,1));
+    background: -o-linear-gradient(top, rgba(129, 225, 226,1), rgba(44, 191,192,1));
+    background: -webkit-linear-gradient(top, rgba(129, 225, 226,1), rgba(44, 191,192,1));
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.fadeInDown {
+    -webkit-animation: fadeInDown .2s;
+    animation: fadeInDown .2s;
+    -moz-animation: fadeInDown .2s;
+}
+.fadeInDown:after{
+    position: absolute;
+    content: '';
+    display: block;
+    left: 50%;
+    top: 100%;
+    width:26px;
+    height:13px;
+    margin-left: -13px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #2cbfc0 !important;
+}
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-20%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.fadeInLeft-bottom,
+.fadeInLeft {
+    -webkit-animation: fadeInLeft .2s;
+    animation: fadeInLeft .2s;
+    -moz-animation: fadeInLeft .2s;
+}
+.fadeInLeft:after{
+    position: absolute;
+    content: '';
+    display: block;
+    right: 20px;
+    top: 100%;
+    width:26px;
+    height:13px;
+    margin-left: -13px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #2cbfc0 !important;
+}
+.fadeInLeft-bottom:after{
+    position: absolute;
+    content: '';
+    display: block;
+    right: 20px;
+    bottom: 100%;
+    width:26px;
+    height:13px;
+    margin-left: -13px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #81e1e2 !important;
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(20%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.fadeInRight {
+    -webkit-animation: fadeInRight .2s;
+    animation: fadeInRight .2s;
+    -moz-animation: fadeInRight .2s;
+}
+.fadeInRight:after{
+    position: absolute;
+    content: '';
+    display: block;
+    left: 50px;
+    top: 100%;
+    width:26px;
+    height:13px;
+    margin-left: -13px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #2cbfc0 !important;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.fadeInUp-bottom,
+.fadeInUp-left{
+    -webkit-animation: fadeInUp .2s;
+    animation: fadeInUp .2s;
+    -moz-animation: fadeInUp .2s;
+}
+.fadeInUp-left:after{
+    position: absolute;
+    content: '';
+    display: block;
+    left: 50px;
+    bottom: 100%;
+    width:26px;
+    height:13px;
+    margin-left: -13px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #81e1e2 !important;
+}
+.fadeInUp-bottom:after{
+    position: absolute;
+    content: '';
+    display: block;
+    left: 50%;
+    bottom: 100%;
+    width:26px;
+    height:13px;
+    margin-left: -13px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #81e1e2 !important;
+}

@@ -1,0 +1,42 @@
+<div class="ms-subTopContainer">
+    <div class="blockName">
+        <span><i class="icon ion-social-vimeo-outline"></i>课题统计</span>
+    </div>
+    <!-- <div class="ms-topNav">
+        <nav class="ms-navTab text-center">
+            <a ng-class="{'current':modal.Navflag == 'topicA'}" ui-sref="modal.topicA" href="javascript:;">课题总数</a>
+            <a ng-class="{'current':modal.Navflag == 'topicB'}" ui-sref="modal.topicB" href="javascript:;">单个学校课题总数</a>
+        </nav>
+    </div> -->
+    
+</div>
+<div class="sub-scrollable marginTop">
+    <div class="scrollable-content flexContainer"
+        data-ui-back-top
+        data-ui-scroll-top="scroll.scrollToTop()"
+        data-ui-scroll-bottom="scroll.scrollToBottom()">
+        <div title="返回顶部" class="scrollToTop" ng-click="scrollToTop()">
+            <i class="icon ion-chevron-up"></i>
+        </div>
+        <div class="flexItems">
+            <ui-view></ui-view>
+            <div class="mainItem">
+                <div class="center-box">
+                    <strong>当前课题统计</strong>
+                    <br>
+                    <div class="nullItem  nullItem_bottom"></div>
+                    <div style="height:400px">   
+                        <pie ng-if="data"
+                                id="piecharts" 
+                                legend="legend" 
+                                counts="counts" 
+                                data="data">
+                        </pie>  
+                    </div> 
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

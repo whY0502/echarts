@@ -1,0 +1,17 @@
+<nav ng-if="totalPage>1"  aria-label="Page navigation" class="text-center text-mu">
+    <ul class="pagination pagination-sm">
+        <li ng-class="{'disabled':page == 1}">
+            <a href="javascript:;" aria-label="Previous" ng-click="query({page:page-1})">
+                <span aria-hidden="true">上一页</span>
+            </a>
+        </li>
+        <li ng-repeat="item in pageList track by $index" ng-click="query({page:item})" ng-class="{'active':item == page }">
+            <a href="javascript:;">{{item}}</a>
+        </li>
+        <li ng-class="{'disabled':page == totalPage}">
+            <a href="javascript:;" aria-label="Next"  ng-click="query({page:page+1})">
+                <span aria-hidden="true">下一页</span>
+            </a>
+        </li>
+    </ul>
+</nav>

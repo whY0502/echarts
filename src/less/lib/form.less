@@ -1,0 +1,155 @@
+mark{
+  font-size: 16px;
+  color: red;
+  padding:6px 20px;
+  .borderRadius(5px);
+}
+
+//只读输入框背景白色
+.form-control[readonly]{
+  background-color: #fff;
+}
+//表单验证错误信息字体大小
+.has-error{
+  .help-block{
+    font-size: 14px;
+  }
+}
+
+//重写bootstrap
+.badge{
+  color:#FFFFFF;
+  background-color:#de4c3e;
+}
+
+//字体
+a.text-msColor:hover,
+.text-msColor{
+  color: @ms-color;
+}
+
+//控制表单提交验证成功项不添加bootstrap高亮绿色样式
+.has-success{
+  .form-control{
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    .borderRadius(4px);
+    .boxShadow(inset 0 1px 1px rgba(0, 0, 0, .075));
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+  .control-label{
+    color:#333;
+  }
+}
+//控制表单focus样式
+.form-control:focus{
+  border-color:@greenColor1;
+  .box_shadow(-1px -1px 1px @grayColor2,1px 2px 5px @grayColor2);
+}
+
+//分页样式重写bootstrap
+.pagination{
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: #FFF;
+      background-color: @ms-color;
+      border-color: @ms-color;
+      cursor: default;
+    }
+  }
+}
+
+
+.input-group{
+  //顶部搜索框
+  &.input-group-custom{
+    min-width: 300px;
+    width:40%;
+    max-width:600px;
+    margin-top: 8px;
+    input{
+      &.form-control{
+        height: 42px;
+        .borderRadius(2px 0 0 2px);
+        font-size:15px;
+      }
+    }
+    .input-group-btn{
+      line-height:42px;
+      .btn{
+        height: 42px;
+        .borderRadius( 0 2px 2px 0);
+        font-size: 16px;
+        outline: none;
+        i{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  //小搜索框
+  &.input-group-custom-sm{
+    input{
+      .borderRadius(50px 0 0 50px);
+      padding-left:20px;
+      font-size:15px;
+      margin-top:15px;
+      &.w180{
+        width:180px;
+      }
+      &.w165{
+        width:165px;
+      }
+    }
+    .input-group-btn {
+      .btn {
+        .borderRadius(0 50px 50px 0);
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 34px;
+        outline: none;
+        color:#666;
+        i{
+          font-size: 20px;
+          vertical-align: top;
+        }
+      }
+      &:hover{
+        i{
+          color:#000;
+        }
+      }
+    }
+    &.default{
+      input{
+        border:1px solid #ddd;
+        background-color:#FFF;
+      }
+      .btn{
+        background-color: #FFF;
+        border: 1px solid #ddd;
+        border-left: none;
+      }
+    }
+    &.default-bg{
+      input{
+        border:1px solid #ddd;
+        background-color:@ms-bgColor;
+      }
+      .btn{
+        background-color:@ms-bgColor;
+        border:1px solid #ddd;
+        border-left: none;
+        outline: none;
+      }
+    }
+  }
+}

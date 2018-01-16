@@ -1,0 +1,18 @@
+<div class="ms-subTopContainer">
+    <div class="blockName">
+        <span><i class="icon ion-social-vimeo-outline"></i>圈子统计</span>
+    </div>
+    <div class="ms-topNav">
+        <nav class="ms-navTab text-center">
+            <a ng-class="{'current':ring.Navflag == 'ringA'}" ui-sref="layout1.ringA.issueA" href="javascript:;">问题数</a>
+            <a ng-class="{'current':ring.Navflag == 'ringB'}" ui-sref="layout1.ringB" href="javascript:;">分享数</a>
+        </nav>
+    </div>
+</div>
+<div class="sub-scrollable marginTop">
+    <div class="scrollable-content flexContainer">
+        <div class="flexItems">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

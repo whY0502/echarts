@@ -1,0 +1,45 @@
+<div class="center-box" ng-class="modal.animateClass">
+    <div class="media">
+        <div class="media-left" style="padding-right:0;">
+            <a ng-click="modal.viewDetail()">
+                <label style="margin-left:0;cursor: pointer;" class="defaultPhoto photo-max" ng-if="modal.userObject.links.length==0" ng-bind="modal.userObject | showUserPhoto"></label>
+                <img style="margin-left:0;" class="media-object photo photo-max" ng-if="modal.userObject.links.length>0" ng-src="{{modal.userObject | showUserPhoto}}" alt="">
+            </a>
+        </div>
+        <div class="media-body" style="padding-left: 0">
+            <h2 style="margin-top: 3px;margin-bottom: 8px;font-weight: 600;font-size: 16px;padding: 0;">
+                {{::modal.userObject.userName}}
+                <span ng-if="modal.userObject.cassflx == 10">专家</span>
+                <span ng-if="modal.userObject.cassflx == 2">教师</span>
+                <span ng-if="modal.userObject.cassflx == 1">学生</span>
+            </h2>
+            <div ng-if="modal.userObject.cassflx == 1">
+                <p style="line-height: 26px;font-size:14px;">
+                    <label>{{::modal.userObject.schoolName}}</label>
+                </p>
+                <p style="line-height: 26px;font-size:14px;" ng-if="modal.userObject.njmc">
+                    <label>{{::modal.userObject.njmc}}&nbsp;{{::modal.userObject.bjmc}}</label>
+                </p>
+            </div>
+            <div ng-if="modal.userObject.cassflx == 2">
+                <p style="line-height: 26px;font-size:14px;">
+                    <label>{{::modal.userObject.schoolName}}</label>
+                </p>
+                <p style="line-height: 26px;font-size:14px;">
+                    <label>{{::modal.userObject.njmc}}</label>
+                </p>
+            </div>
+            <div ng-if="modal.userObject.cassflx == 10">
+                <p style="line-height: 20px;font-size:14px;">
+                    <label style="width:236px;" class="wordBreak">{{::modal.userObject.expertTitle}}</label>
+                </p>
+                <p style="line-height: 20px;font-size:14px;">
+                    <label style="width:236px;" class="wordBreak">{{::modal.userObject.expertSkill}}</label>
+                </p>
+                <p style="line-height: 20px;font-size:14px;">
+                    <label  style="width:236px;" class="wordBreak">{{::modal.userObject.expertInstitution}}</label>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

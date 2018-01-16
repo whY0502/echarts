@@ -1,0 +1,31 @@
+<div class="scrollable">
+    <div class="scrollable-header" ui-sref="ms">
+        <h1 class="text-center" style="height:60px;line-height:60px;color:#fff;font-size:30px;cursor:pointer;">
+            <strong>后台统计</strong>
+        </h1>
+    </div>
+    <div class="scrollable-content" style="margin-top: 60px;">
+        <ul class="nav custom-nav">
+            <li class="menu-list" ng-class="{'nav-active':actionNav == 'layout1'}">
+                <a ui-sref="layout1.ringA.issueA" ui-sref-opts="{reload:true}" href="javascript:;">
+                    <span>圈子统计</span>
+                </a>
+            </li>
+            <li class="menu-list" ng-class="{'nav-active':actionNav == 'layout2'}">
+                <a ui-sref="layout2.NavA" ui-sref-opts="{reload:true}" href="javascript:;">
+                    <span>专家统计</span>
+                </a>
+            </li>
+            <li class="menu-list" ng-class="{'nav-active':actionNav == 'tip'}">
+                <a ui-sref="tip.tipA" ui-sref-opts="{reload:true}" href="javascript:;">
+                    <span>人数统计</span>
+                </a>
+            </li>
+            <li class="menu-list" ng-class="{'nav-active':actionNav == 'modal'}">
+                <a ui-sref="modal" ui-sref-opts="{reload:true}" href="javascript:;">
+                    <span>课题统计</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

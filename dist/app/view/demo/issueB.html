@@ -1,0 +1,20 @@
+<div class="flexContainer child">
+    <div class="mainItem">
+        <div class="center-box">
+            <strong>请选择查看学校</strong>
+            <select ng-model="selectedItem" ng-options="item.school_name for item in schools"></select>
+            <div class="nullItem  nullItem_bottom"></div>
+            <table class="table text-center">
+                <tr class="title_tr">
+                    <td>当前查看学校</td>
+                    <td>学校问题总数</td>
+                </tr>
+                <tr class="text-center">
+                    <td>{{selectedItem.school_name}}</td>
+                    <td>{{selectedItem.question_school_total}}</td>
+                </tr>
+            </table>
+            <div class="nullItem  nullItem_top"></div>
+        </div>
+    </div>
+</div>

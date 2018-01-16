@@ -1,0 +1,125 @@
+/*** 头像 ***/
+span,
+label{
+  font-weight: 500;
+  &.control-label{
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  &.defaultPhoto{
+    height: 37px;
+    width: 37px;
+    .borderRadius(100%);
+    color:@ms-color;
+    line-height:37px;
+    border:1px solid @ms-color;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  &.wordPhoto{
+    color: #FFF;
+    background-color:@ms-color;
+    line-height: 36px;
+  }
+  &.photo-max{
+    height: 42px;
+    width: 42px;
+    line-height:42px;
+    font-size: 18px;
+  }
+  &.photo-min{
+    width: 32px;
+    height:32px;
+    line-height: 32px;
+    font-size: 14px;
+  }
+}
+img{
+  &.photo{
+    width: 37px;
+    height:37px;
+    .borderRadius(100%);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &.photo-max{
+    width: 42px;
+    height:42px;
+  }
+  &.photo-min{
+    width: 32px;
+    height:32px;
+    vertical-align: top;
+  }
+}
+//查找添加人显示
+.photoSelect{
+  height:32px;
+  width:32px;
+  position:relative;
+  cursor:pointer;
+  &:hover{
+    .photoLayer{
+      display: inline-block;
+    }
+  }
+  .photoLayer{
+    position: absolute;
+    display: none;
+    height: 32px;
+    width: 32px;
+    left: 3px;
+    .borderRadius(50%);
+    background: rgba(0,0,0,0.7);
+    color: #FFF;
+    font-size: 12px;
+    line-height: 32px;
+  }
+}
+
+/*上传头像弹出框样式*/
+.photo{
+  .photo-upload{
+    margin: 10px 18px;
+    padding: 100px 0;
+    height:278px;
+    text-align: center;
+    border: 1px solid #ddd;
+    .photo-btn{
+      padding: 9px 12px;
+      background-color: @ms-color;
+      color: #fff;
+      .borderRadius(2px);
+      cursor: pointer;
+    }
+    .photo-desc{
+      margin-top: 20px;
+      font-size: 15px;
+      color: #777;
+    }
+  }
+  .photo-style{
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    .photo-show-title{
+      margin-top: 10px;
+      color:#999;
+    }
+    .photo-show{
+      .photo-img{
+        border-radius: 50%;
+        margin: 23px auto;
+        &.photo-img-s{
+          width: 76px;
+          height: 76px;
+        }
+        &.photo-img-b{
+          width: 98px;
+          height: 98px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.camera{
+    .imgupload{
+        display: none;
+    }
+    .imgcontainer{
+        position: relative;
+        padding: 10px 5px;
+        width: 370px;
+        height: auto;
+        img,canvas{
+            cursor: pointer;
+            width: 112px;
+            height: 112px;
+            margin: 3px 1px;
+            display: inline-block;
+        }
+        canvas{
+            .borderRadius(3px);
+        }
+        img{
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            &.view{
+                width: auto;
+                height: auto;
+            }
+        }
+        span{
+            &.close{
+                position: absolute;
+                display: none;
+                margin-top: 2px;
+                right: 5px;
+                width: 18px;
+                height: 18px;
+                background: url(../img/close.png);
+                opacity: 1;
+                &.active{
+                    right: 0;
+                    top: -2px;
+                }
+            }
+        }
+        a{
+            position: relative;
+            text-decoration: none;
+            &:after{
+                position: absolute;
+                font-family: @app-font-family-sub;
+                content: attr(data-number1);
+                background: rgba(0,0,0,0.5);
+                color: #FFFFFF;
+                z-index: 10;
+                margin-left: -117px;
+                margin-top: 95px;
+                font-size: 14px;
+                padding: 0 6px;
+            }
+            &:hover{
+                span{
+                    &.close{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+    .camerapm{
+        margin: 0;
+        padding: 0;
+        img{
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

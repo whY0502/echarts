@@ -1,0 +1,56 @@
+ul.tree-view,
+ul.tree-view ul{
+  display: block;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-margin-start:0px;
+  -webkit-margin-end:0px;
+}
+.tree-view li nav{
+  position: absolute;
+  right:15px;
+  top:3px;
+  display: none;
+}
+.tree-view li nav i.icon{
+  font-size:22px;
+  padding: 3px;
+}
+.tree-view li{
+  padding-left: 30px;
+  display:list-item;
+  cursor:pointer;
+}
+.tree-view li .item{
+  position: relative;
+  padding:3px 20px;
+}
+.tree-view li .item:hover nav{
+  display: block;
+}
+.tree-view li .item.active{
+  background-color: #EEE;
+}
+.tree-view li .item.active nav{
+  display: block;
+}
+.tree-view li .item:hover{
+  background-color: #EEE;
+}
+.tree-view li i{
+  height:30px;
+  line-height: 30px;
+  color:#27ACAD;
+  vertical-align: sub;
+}
+.tree-view li i.icon{
+  font-size: 26px;
+}
+.tree-view li i.fa{
+  font-size: 21px;
+}
+.text-field{
+  cursor: pointer;
+  font-size: 16px;
+}

@@ -1,0 +1,35 @@
+<div class="flexContainer child">
+    <div class="mainItem">
+        <div class="center-box">
+            <strong>当前用户注册量</strong>
+            <br>
+            <div class="nullItem  nullItem_bottom"></div>
+            <div style="height:400px">   
+                    <perbar ng-if="data"
+                            id="expBarcharts" 
+                            legend="legend"  
+                            data="data">
+                    </perbar>  
+            </div> 
+            <!-- <table class="table text-center">
+                <tr class="title_tr">
+                    <td>注册方式</td>
+                    <td>注册量</td>
+                </tr>
+                <tr>
+                    <td>Web端用户注册</td>
+                    <td>{{counts[1].count}}</td>
+                </tr>
+                <tr>
+                    <td>移动端用户注册</td>
+                    <td>{{counts[2].count}}</td>
+                </tr>
+                <tr>
+                    <td>学校单方面导入</td>
+                    <td>{{counts[0].count}}</td>
+                </tr>
+            </table> -->
+            <div class="nullItem nullItem_top"></div>
+        </div>
+    </div>
+</div>

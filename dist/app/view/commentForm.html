@@ -1,0 +1,20 @@
+<form role="form" novalidate="novalidate" ng-submit="submit()">
+    <div class="form-group">
+        <label class="control-label"></label>
+        <textarea rows="1"
+                  class="form-control"
+                  ui-auto-height
+                  autofocus
+                  ui-auto-focus
+                  ng-trim="true"
+                  ng-model="dialogContent"
+                  ng-maxlength="500"
+                  placeholder="回复 {{toUserName}}"
+                  autocomplete="off"></textarea>
+    </div>
+    <div class="form-group text-right">
+        <button class="btn btn-primary" type="submit">
+            <span>提交</span>
+        </button>
+    </div>
+</form>

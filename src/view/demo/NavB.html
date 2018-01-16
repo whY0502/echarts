@@ -1,0 +1,22 @@
+<div class="flexContainer child">
+        <div class="mainItem">
+            <div class="center-box">
+                <strong>各个领域专家数</strong>
+                <br>
+                <div class="nullItem nullItem_bottom"></div>
+                <table class="table text-center">
+                    <tr class="title_tr">
+                        <td>领域名称</td>
+                        <td>领域专家数</td>
+                        <td>备注</td>
+                    </tr>
+                    <tr ng-repeat="item in experts" class="text-center">
+                        <td>{{item.name}}</td>
+                        <td>{{item.expert_count}}</td>
+                        <td ><span href="#" style="width:100px; display:inline-block;">详情</span></td>
+                    </tr>
+                </table>
+                <div class="nullItem nullItem_top"></div>
+            </div>
+        </div>
+    </div>

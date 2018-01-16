@@ -1,0 +1,29 @@
+<div class="flexContainer child">
+    
+    <div class="mainItem">
+        <div class="center-box">
+
+            <strong>所有专家回复情况</strong>
+            <div class="nullItem  nullItem_bottom"></div>
+            <div style="height:400px">   
+                <scatter ng-if="data"
+                        id="dashedcharts" 
+                        legend="legend" 
+                        data="data">
+            </scatter>  
+            </div> 
+            <!-- <table class="table text-center">
+                <tr class="title_tr">
+                    <td>专家名称</td>
+                    <td>回答问题数</td>
+                </tr>
+                <tr ng-repeat="item in experts">
+                    <td>{{item.user_name}}</td>
+                    <td>{{item.count}}</td>
+                </tr>
+            </table> -->
+            
+        </div>
+    
+    </div>
+</div>

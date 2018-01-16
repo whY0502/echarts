@@ -1,0 +1,25 @@
+<div class="ms-subTopContainer">
+    <div class="blockName">
+        <span><i class="icon ion-social-vimeo-outline"></i>专家统计</span>
+    </div>
+    <div class="ms-topNav">
+        <nav class="ms-navTab text-center">
+            <a ng-class="{'current':Nav.Navflag == 'NavA'}" ui-sref="layout2.NavA" href="javascript:;">专家总数</a>
+            <a ng-class="{'current':Nav.Navflag == 'NavB'}" ui-sref="layout2.NavB" href="javascript:;">单个领域专家数量</a>
+            <a ng-class="{'current':Nav.Navflag == 'NavC'}" ui-sref="layout2.NavC" href="javascript:;">单个专家回复数</a>
+        </nav>
+    </div>
+</div>
+<div class="sub-scrollable marginTop">
+    <div class="scrollable-content flexContainer"
+        data-ui-back-top
+        data-ui-scroll-top="scroll.scrollToTop()"
+        data-ui-scroll-bottom="scroll.scrollToBottom()">
+        <div title="返回顶部" class="scrollToTop" ng-click="scrollToTop()">
+            <i class="icon ion-chevron-up"></i>
+        </div>
+        <div class="flexItems">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+//重写bootstrap
+.table-hover {
+  > tbody > tr:hover {
+    background-color: @table-bg-hover;
+  }
+}
+
+.table-concat{
+  margin-bottom:0;
+  border-bottom:none;
+  tr:last-child{
+    td{
+      border-bottom: none;
+    }
+  }
+  td{
+    &.rowSpan{
+      border-bottom: none;
+    }
+  }
+  &:last-child{
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+/**
+  * 表格行样式
+  */
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th{
+  &.ms-td{
+    height:70px;
+    padding:0;
+    border-top: 0 solid transparent !important;
+    border-bottom:1px solid #F4F4F4;
+    &.ms-td-view{
+      height:40px;
+      border-bottom:none;
+      vertical-align:top;
+    }
+  }
+  &.ms-td-sub{
+    padding:10px;
+  }
+  &.ms-td-sub,
+  &.ms-td{
+    vertical-align:middle;
+    &.w50{
+      width: 50px;
+      vertical-align: middle;
+      font-weight: 600;
+      font-size: 18px;
+      color: #444;
+    }
+    &.w80{
+      width: 80px;
+    }
+    &.w120{
+      width: 120px;
+    }
+    &.w180{
+      width: 180px;
+    }
+    .ms-td-content{
+      /*padding: 5px 0;*/
+      /*line-height:50px;*/
+      font-size: 15px;
+    }
+    span{
+      font-size: 14px;
+      color:#999;
+      &.info{
+        font-family: @app-font-family;
+        font-size: 14px;
+        color: #333;
+        i{
+          font-size:25px;
+          &.ion-android-close{
+            color:red;
+          }
+          &.ion-android-done{
+            color:green;
+          }
+        }
+      }
+      &.default{
+        font-family: @app-font-family;
+        font-size: 13px;
+        color:#999;
+      }
+      &.default_info{
+        position: relative;
+      }
+      &.category{
+        padding: 0 6px;
+        margin-right:10px;
+        .borderRadius(3px);
+        &.yellow{
+          border:1px solid #ea9113;
+          color: #ea9113;
+        }
+        &.littleBlue{
+          border:1px solid #27ACAD;
+          color: #27ACAD;
+        }
+      }
+    }
+    label{
+      font-size:15px;
+      color:#333;
+      &.defaultPhoto{
+        color: @ms-color;
+      }
+    }
+  }
+}
+.table>tbody>tr,
+.table>tfoot>tr,
+.table>thead>tr{
+  &.tr-hover{
+    *{
+      cursor: pointer;
+    }
+  }
+}
